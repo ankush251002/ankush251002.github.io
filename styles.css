@@ -69,73 +69,113 @@ body {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #020204;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, #050816 0%, #020204 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.splash-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 50% 40% at 25% 20%, rgba(99,102,241,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 75% 20%, rgba(139,92,246,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 50% 70%, rgba(6,182,212,0.05) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .splash-screen.fade-out {
     opacity: 0;
-    transform: scale(1.05);
+    transform: scale(1.04);
     pointer-events: none;
 }
 
-/* Flash overlay (white screen flash for lightning) */
+/* Flash overlay (screen flash for lightning) */
 .flash-overlay {
     position: absolute;
     inset: 0;
-    background: #fff;
+    background: radial-gradient(ellipse at center, rgba(200,210,255,1) 0%, rgba(130,120,255,0.9) 50%, rgba(99,102,241,0.6) 100%);
     opacity: 0;
     z-index: 10;
     pointer-events: none;
+    transition: opacity 0.05s;
 }
 
 /* Lightning bolts */
 .lightning {
     position: absolute;
-    width: 120px;
-    height: 400px;
     opacity: 0;
     z-index: 5;
-    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.8))
-            drop-shadow(0 0 60px rgba(99, 102, 241, 0.4));
+    filter: drop-shadow(0 0 12px rgba(99, 102, 241, 1))
+            drop-shadow(0 0 40px rgba(99, 102, 241, 0.6))
+            drop-shadow(0 0 80px rgba(139, 92, 246, 0.3));
 }
 
 .lightning-1 {
+    width: 120px;
+    height: 400px;
     top: -5%;
-    left: 20%;
+    left: 18%;
     transform: rotate(-8deg);
 }
 
 .lightning-2 {
-    top: -8%;
-    right: 25%;
-    transform: rotate(5deg) scaleX(-1);
     width: 100px;
+    height: 400px;
+    top: -8%;
+    right: 22%;
+    transform: rotate(5deg) scaleX(-1);
 }
 
 .lightning-3 {
+    width: 90px;
+    height: 350px;
     top: -3%;
     left: 50%;
     transform: translateX(-50%) rotate(2deg);
-    width: 90px;
-    height: 350px;
 }
 
 .lightning.strike {
-    animation: lightningStrike 0.3s ease-out forwards;
+    animation: lightningStrike 0.35s ease-out forwards;
 }
 
 @keyframes lightningStrike {
-    0%   { opacity: 0; transform: translateY(-20px) scaleY(0.8); }
-    15%  { opacity: 1; }
-    40%  { opacity: 1; }
-    60%  { opacity: 0.6; }
+    0%   { opacity: 0; transform: translateY(-20px) scaleY(0.7); filter: drop-shadow(0 0 30px rgba(255,255,255,0.9)) drop-shadow(0 0 80px rgba(99,102,241,0.8)); }
+    10%  { opacity: 1; }
+    30%  { opacity: 1; }
+    60%  { opacity: 0.7; }
     80%  { opacity: 0.3; }
     100% { opacity: 0; transform: translateY(0) scaleY(1); }
+}
+
+.lightning-2.strike {
+    animation: lightningStrike2 0.35s ease-out forwards;
+}
+
+@keyframes lightningStrike2 {
+    0%   { opacity: 0; transform: rotate(5deg) scaleX(-1) translateY(-20px) scaleY(0.7); }
+    10%  { opacity: 1; }
+    30%  { opacity: 1; }
+    60%  { opacity: 0.7; }
+    80%  { opacity: 0.3; }
+    100% { opacity: 0; transform: rotate(5deg) scaleX(-1) translateY(0) scaleY(1); }
+}
+
+.lightning-3.strike {
+    animation: lightningStrike3 0.35s ease-out forwards;
+}
+
+@keyframes lightningStrike3 {
+    0%   { opacity: 0; transform: translateX(-50%) rotate(2deg) translateY(-20px) scaleY(0.7); }
+    10%  { opacity: 1; }
+    30%  { opacity: 1; }
+    60%  { opacity: 0.7; }
+    80%  { opacity: 0.3; }
+    100% { opacity: 0; transform: translateX(-50%) rotate(2deg) translateY(0) scaleY(1); }
 }
 
 /* Thunder crack lines */
@@ -226,35 +266,38 @@ body {
     position: relative;
     z-index: 20;
     text-align: center;
+    user-select: none;
 }
 
 .splash-line-1 {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 6vw, 4.5rem);
     font-weight: 300;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     opacity: 0;
-    transform: translateY(30px);
-    letter-spacing: 0.02em;
+    transform: translateY(40px);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .splash-line-1.show {
-    animation: textReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: textReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .splash-line-2 {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-size: clamp(3rem, 10vw, 7.5rem);
     font-weight: 900;
     color: var(--text-primary);
     opacity: 0;
-    transform: translateY(30px);
-    letter-spacing: -0.03em;
-    margin-top: -0.1em;
+    transform: translateY(40px);
+    letter-spacing: -0.04em;
+    margin-top: -0.05em;
+    line-height: 1;
 }
 
 .splash-line-2.show {
-    animation: textReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    animation: textReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
 }
 
 .splash-name {
@@ -263,23 +306,25 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     position: relative;
+    display: inline-block;
 }
 
 .splash-name::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 4px;
     background: var(--gradient);
     border-radius: 2px;
     transform: scaleX(0);
     transform-origin: left;
+    box-shadow: 0 0 20px rgba(99,102,241,0.8);
 }
 
 .splash-line-2.show .splash-name::after {
-    animation: lineExpand 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    animation: lineExpand 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
 }
 
 @keyframes lineExpand {
@@ -288,18 +333,18 @@ body {
 
 .splash-tagline {
     font-family: var(--font-body);
-    font-size: clamp(0.85rem, 2vw, 1.15rem);
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
     color: var(--text-muted);
     opacity: 0;
     transform: translateY(20px);
-    margin-top: 1rem;
-    letter-spacing: 0.15em;
+    margin-top: 1.5rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     font-weight: 500;
 }
 
 .splash-tagline.show {
-    animation: textReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+    animation: textReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
 }
 
 @keyframes textReveal {
