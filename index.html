@@ -11,69 +11,78 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="loading">
 
-    <!-- ========== THUNDER SPLASH INTRO ========== -->
+    <!-- ========== THUNDER SPLASH SCREEN ========== -->
     <div id="splashScreen" class="splash-screen">
-        <!-- Lightning bolt SVGs -->
-        <svg class="lightning lightning-1" viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 0 L120 180 L160 180 L80 380 L110 380 L60 600 L90 350 L55 350 L130 160 L95 160 Z" fill="url(#bolt1)"/>
-            <defs><linearGradient id="bolt1" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#fff"/>
-                <stop offset="50%" stop-color="#a78bfa"/>
-                <stop offset="100%" stop-color="#6366f1"/>
-            </linearGradient></defs>
-        </svg>
-        <svg class="lightning lightning-2" viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 0 L115 160 L150 160 L75 340 L105 340 L55 600 L85 310 L50 310 L125 140 L90 140 Z" fill="url(#bolt2)"/>
-            <defs><linearGradient id="bolt2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#fff"/>
-                <stop offset="50%" stop-color="#7dd3fc"/>
-                <stop offset="100%" stop-color="#06b6d4"/>
-            </linearGradient></defs>
-        </svg>
-        <svg class="lightning lightning-3" viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 0 L118 200 L155 200 L82 400 L108 400 L62 600 L88 370 L58 370 L128 175 L98 175 Z" fill="url(#bolt3)"/>
-            <defs><linearGradient id="bolt3" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#fff"/>
-                <stop offset="50%" stop-color="#fda4af"/>
-                <stop offset="100%" stop-color="#f43f5e"/>
-            </linearGradient></defs>
-        </svg>
 
-        <!-- Flash overlay -->
+        <!-- White flash overlay -->
         <div class="flash-overlay" id="flashOverlay"></div>
 
-        <!-- Thunder cracks (decorative lines) -->
+        <!-- Lightning SVG bolts -->
+        <svg class="lightning lightning-1" viewBox="0 0 120 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="70,0 30,180 65,180 20,400" stroke="url(#lg1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="70,0 30,180 65,180 20,400" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+            <defs>
+                <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+                    <stop offset="0%" stop-color="#a5b4fc"/>
+                    <stop offset="60%" stop-color="#6366f1"/>
+                    <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.2"/>
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <svg class="lightning lightning-2" viewBox="0 0 100 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="60,0 25,160 55,160 10,400" stroke="url(#lg2)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="60,0 25,160 55,160 10,400" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            <defs>
+                <linearGradient id="lg2" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+                    <stop offset="0%" stop-color="#c4b5fd"/>
+                    <stop offset="60%" stop-color="#8b5cf6"/>
+                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0.1"/>
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <svg class="lightning lightning-3" viewBox="0 0 90 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="55,0 20,140 50,140 5,350" stroke="url(#lg3)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="55,0 20,140 50,140 5,350" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+            <defs>
+                <linearGradient id="lg3" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+                    <stop offset="0%" stop-color="#67e8f9"/>
+                    <stop offset="60%" stop-color="#06b6d4"/>
+                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0.1"/>
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <!-- Thunder crack lines -->
         <div class="thunder-crack crack-1"></div>
         <div class="thunder-crack crack-2"></div>
         <div class="thunder-crack crack-3"></div>
         <div class="thunder-crack crack-4"></div>
 
-        <!-- Spark particles -->
+        <!-- Spark particles container -->
         <div class="spark-container" id="sparkContainer"></div>
 
-        <!-- Intro Text -->
-        <div class="splash-content" id="splashContent">
-            <div class="splash-line-1" id="splashLine1">Hi ,</div>
-            <div class="splash-line-2" id="splashLine2">I am <span class="splash-name">Ankush</span></div>
-            <div class="splash-tagline" id="splashTagline">Data Analyst • Insight Storyteller</div>
+        <!-- Splash text content -->
+        <div class="splash-content">
+            <div class="splash-line-1" id="splashLine1">Hi, I am</div>
+            <div class="splash-line-2" id="splashLine2"><span class="splash-name">Ankush</span></div>
+            <div class="splash-tagline" id="splashTagline">Data Analyst · Python · Power BI · SQL</div>
         </div>
 
         <!-- Loading bar -->
         <div class="splash-loader" id="splashLoader">
             <div class="splash-loader-bar"></div>
         </div>
+
     </div>
 
-
-    <!-- ========== MAIN PORTFOLIO (hidden until splash ends) ========== -->
+    <!-- ========== MAIN PORTFOLIO ========== -->
     <div id="mainContent" class="main-content hidden">
-
-        <!-- Animated Background Canvas -->
         <canvas id="particleCanvas"></canvas>
 
-        <!-- Navigation -->
         <nav class="navbar" id="navbar">
             <div class="nav-container">
                 <a href="#home" class="logo">
@@ -94,7 +103,6 @@
             </div>
         </nav>
 
-        <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-shapes">
                 <div class="shape shape-1"></div>
@@ -109,34 +117,17 @@
                         <span class="badge-dot"></span>
                         Available for opportunities
                     </div>
-                    <h1 class="hero-title">
-                        Hi, I'm <span class="gradient-text">Ankush</span>
-                    </h1>
-                    <h2 class="hero-subtitle">
-                        <span id="typewriter"></span><span class="cursor">|</span>
-                    </h2>
-                    <p class="hero-description">
-                        BCom Economics graduate turned Data Analyst. I transform raw data into actionable insights using Python, SQL, and Power BI.
-                    </p>
+                    <h1 class="hero-title">Hi, I'm <span class="gradient-text">Ankush</span></h1>
+                    <h2 class="hero-subtitle"><span id="typewriter"></span><span class="cursor">|</span></h2>
+                    <p class="hero-description">BCom Economics graduate turned Data Analyst. I transform raw data into actionable insights using Python, SQL, and Power BI.</p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">
-                            <span>View Projects</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span>Get in Touch</span>
-                        </a>
+                        <a href="#projects" class="btn btn-primary"><span>View Projects</span><i class="fas fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn btn-secondary"><span>Get in Touch</span></a>
                     </div>
                     <div class="social-links">
-                        <a href="https://github.com/ankush251002" target="_blank" aria-label="GitHub" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/ankush-saini-451206355/" target="_blank" aria-label="LinkedIn" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="mailto:sainiankush630@gmail.com" aria-label="Email" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+                        <a href="https://github.com/ankush251002" target="_blank" aria-label="GitHub" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/ankush-saini-451206355/" target="_blank" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:sainiankush630@gmail.com" aria-label="Email" class="social-link"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="hero-visual reveal">
@@ -144,9 +135,7 @@
                         <div class="graphic-ring ring-1"></div>
                         <div class="graphic-ring ring-2"></div>
                         <div class="graphic-ring ring-3"></div>
-                        <div class="graphic-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
+                        <div class="graphic-icon"><i class="fas fa-chart-line"></i></div>
                         <div class="orbit-icon orbit-1"><i class="fab fa-python"></i></div>
                         <div class="orbit-icon orbit-2"><i class="fas fa-database"></i></div>
                         <div class="orbit-icon orbit-3"><i class="fas fa-chart-pie"></i></div>
@@ -154,14 +143,11 @@
                 </div>
             </div>
             <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
+                <div class="mouse"><div class="wheel"></div></div>
                 <span>Scroll Down</span>
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="about">
             <div class="section-container">
                 <div class="section-header reveal">
@@ -170,12 +156,8 @@
                 </div>
                 <div class="about-content">
                     <div class="about-text reveal">
-                        <p class="about-intro">
-                            I'm a data analyst with a unique background in Economics, currently mastering advanced data science techniques through a comprehensive 9-month program.
-                        </p>
-                        <p>
-                            My journey from BCom Economics (2021-2024) to Data Analytics has equipped me with strong analytical thinking and business acumen. I specialize in extracting meaningful insights from complex datasets and presenting them through compelling visualizations.
-                        </p>
+                        <p class="about-intro">I'm a data analyst with a unique background in Economics, currently mastering advanced data science techniques through a comprehensive 9-month program.</p>
+                        <p>My journey from BCom Economics (2021-2024) to Data Analytics has equipped me with strong analytical thinking and business acumen. I specialize in extracting meaningful insights from complex datasets and presenting them through compelling visualizations.</p>
                         <div class="education">
                             <h3><i class="fas fa-graduation-cap"></i> Education</h3>
                             <div class="timeline">
@@ -220,7 +202,6 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills" class="skills">
             <div class="section-container">
                 <div class="section-header reveal">
@@ -229,135 +210,39 @@
                 </div>
                 <div class="skills-grid">
                     <div class="skill-category reveal">
-                        <div class="skill-category-header">
-                            <div class="skill-icon-wrap"><i class="fas fa-code"></i></div>
-                            <h3>Programming</h3>
-                        </div>
+                        <div class="skill-category-header"><div class="skill-icon-wrap"><i class="fas fa-code"></i></div><h3>Programming</h3></div>
                         <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Python</span>
-                                    <span class="skill-percent">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">SQL</span>
-                                    <span class="skill-percent">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="80"></div>
-                                </div>
-                            </div>
+                            <div class="skill-item"><div class="skill-info"><span class="skill-name">Python</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+                            <div class="skill-item"><div class="skill-info"><span class="skill-name">SQL</span><span class="skill-percent">80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80"></div></div></div>
                         </div>
                     </div>
-
                     <div class="skill-category reveal">
-                        <div class="skill-category-header">
-                            <div class="skill-icon-wrap"><i class="fas fa-book"></i></div>
-                            <h3>Libraries</h3>
-                        </div>
+                        <div class="skill-category-header"><div class="skill-icon-wrap"><i class="fas fa-book"></i></div><h3>Libraries</h3></div>
                         <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Pandas</span>
-                                    <span class="skill-percent">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">NumPy</span>
-                                    <span class="skill-percent">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Matplotlib</span>
-                                    <span class="skill-percent">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="75"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Seaborn</span>
-                                    <span class="skill-percent">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="75"></div>
-                                </div>
-                            </div>
+                            <div class="skill-item"><div class="skill-info"><span class="skill-name">Pandas</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+                            <div class="skill-item"><div class="skill-info"><span class="skill-name">NumPy</span><span class="skill-percent">80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80"></div></div></div>
+                            <div class="skill-item"><div class="skill-info"><span class="skill-name">Matplotlib</span><span class="skill-percent">75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75"></div></div></div>
+                            <div class="skill-item"><div class="skill-info"><span class="skill-name">Seaborn</span><span class="skill-percent">75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75"></div></div></div>
                         </div>
                     </div>
-
                     <div class="skill-category reveal">
-                        <div class="skill-category-header">
-                            <div class="skill-icon-wrap"><i class="fas fa-chart-bar"></i></div>
-                            <h3>Visualization</h3>
-                        </div>
+                        <div class="skill-category-header"><div class="skill-icon-wrap"><i class="fas fa-chart-bar"></i></div><h3>Visualization</h3></div>
                         <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Power BI</span>
-                                    <span class="skill-percent">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Tableau</span>
-                                    <span class="skill-percent">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="75"></div>
-                                </div>
-                            </div>
+                            <div class="skill-item"><div class="skill-info"><span class="skill-name">Power BI</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+                            <div class="skill-item"><div class="skill-info"><span class="skill-name">Tableau</span><span class="skill-percent">75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75"></div></div></div>
                         </div>
                     </div>
-
                     <div class="skill-category reveal">
-                        <div class="skill-category-header">
-                            <div class="skill-icon-wrap"><i class="fas fa-tools"></i></div>
-                            <h3>Tools</h3>
-                        </div>
+                        <div class="skill-category-header"><div class="skill-icon-wrap"><i class="fas fa-tools"></i></div><h3>Tools</h3></div>
                         <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Git & GitHub</span>
-                                    <span class="skill-percent">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Excel</span>
-                                    <span class="skill-percent">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="85"></div>
-                                </div>
-                            </div>
+                            <div class="skill-item"><div class="skill-info"><span class="skill-name">Git & GitHub</span><span class="skill-percent">80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80"></div></div></div>
+                            <div class="skill-item"><div class="skill-info"><span class="skill-name">Excel</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="projects">
             <div class="section-container">
                 <div class="section-header reveal">
@@ -366,79 +251,21 @@
                 </div>
                 <div class="projects-grid">
                     <div class="project-card reveal">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/ankush251002/Flipkart-Product-and-price-Analysis" target="_blank" class="project-link" aria-label="View Flipkart Project on GitHub">
-                                    <i class="fab fa-github"></i>
-                                    <span>View Code</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Flipkart Product & Price Analysis</h3>
-                            <p>End-to-end data analysis project analyzing 20,000+ product listings. Built comprehensive Python EDA pipeline and interactive Power BI dashboard to uncover pricing trends and market insights.</p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">Pandas</span>
-                                <span class="tag">Power BI</span>
-                                <span class="tag">EDA</span>
-                            </div>
-                        </div>
+                        <div class="project-image"><div class="project-placeholder"><i class="fas fa-shopping-cart"></i></div><div class="project-overlay"><a href="https://github.com/ankush251002/Flipkart-Product-and-price-Analysis" target="_blank" class="project-link"><i class="fab fa-github"></i><span>View Code</span></a></div></div>
+                        <div class="project-content"><h3>Flipkart Product & Price Analysis</h3><p>End-to-end data analysis project analyzing 20,000+ product listings. Built comprehensive Python EDA pipeline and interactive Power BI dashboard.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Power BI</span><span class="tag">EDA</span></div></div>
                     </div>
-
                     <div class="project-card reveal">
-                        <div class="project-image">
-                            <div class="project-placeholder placeholder-alt">
-                                <i class="fas fa-ship"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/ankush251002/Titanic-EDA-Project" target="_blank" class="project-link" aria-label="View Titanic Project on GitHub">
-                                    <i class="fab fa-github"></i>
-                                    <span>View Code</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Titanic Dataset Analysis</h3>
-                            <p>Comprehensive analysis of Titanic passenger data exploring survival factors. Applied statistical analysis and data visualization techniques to identify key patterns.</p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">Matplotlib</span>
-                                <span class="tag">Seaborn</span>
-                            </div>
-                        </div>
+                        <div class="project-image"><div class="project-placeholder placeholder-alt"><i class="fas fa-ship"></i></div><div class="project-overlay"><a href="https://github.com/ankush251002/Titanic-EDA-Project" target="_blank" class="project-link"><i class="fab fa-github"></i><span>View Code</span></a></div></div>
+                        <div class="project-content"><h3>Titanic Dataset Analysis</h3><p>Comprehensive analysis of Titanic passenger data exploring survival factors. Applied statistical analysis and data visualization techniques.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span></div></div>
                     </div>
-
                     <div class="project-card reveal">
-                        <div class="project-image">
-                            <div class="project-placeholder placeholder-alt-2">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/ankush251002/dvd-rental-sql-project" target="_blank" class="project-link" aria-label="View SQL Project on GitHub">
-                                    <i class="fab fa-github"></i>
-                                    <span>View Code</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Sakila Database Analysis</h3>
-                            <p>Advanced SQL queries on Sakila database for video rental business insights. Performed complex joins, aggregations, and window functions for business intelligence.</p>
-                            <div class="project-tags">
-                                <span class="tag">SQL</span>
-                                <span class="tag">MySQL</span>
-                                <span class="tag">Data Analysis</span>
-                            </div>
-                        </div>
+                        <div class="project-image"><div class="project-placeholder placeholder-alt-2"><i class="fas fa-database"></i></div><div class="project-overlay"><a href="https://github.com/ankush251002/dvd-rental-sql-project" target="_blank" class="project-link"><i class="fab fa-github"></i><span>View Code</span></a></div></div>
+                        <div class="project-content"><h3>Sakila Database Analysis</h3><p>Advanced SQL queries on Sakila database for video rental business insights. Complex joins, aggregations, and window functions.</p><div class="project-tags"><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">Data Analysis</span></div></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="contact">
             <div class="section-container">
                 <div class="section-header reveal">
@@ -450,76 +277,35 @@
                         <h3>Let's Connect!</h3>
                         <p>I'm currently looking for Junior Data Analyst opportunities. Feel free to reach out if you'd like to discuss data, projects, or potential collaborations.</p>
                         <div class="contact-items">
-                            <div class="contact-item">
-                                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                                <div>
-                                    <span class="contact-label">Email</span>
-                                    <a href="mailto:sainiankush630@gmail.com">sainiankush630@gmail.com</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                                <div>
-                                    <span class="contact-label">Location</span>
-                                    <span>Satna, Madhya Pradesh, India</span>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon"><i class="fab fa-github"></i></div>
-                                <div>
-                                    <span class="contact-label">GitHub</span>
-                                    <a href="https://github.com/ankush251002" target="_blank">github.com/ankush251002</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
-                                <div>
-                                    <span class="contact-label">LinkedIn</span>
-                                    <a href="https://linkedin.com/in/ankush-saini-451206355/" target="_blank">Ankush Saini</a>
-                                </div>
-                            </div>
+                            <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><span class="contact-label">Email</span><a href="mailto:sainiankush630@gmail.com">sainiankush630@gmail.com</a></div></div>
+                            <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><span class="contact-label">Location</span><span>Satna, Madhya Pradesh, India</span></div></div>
+                            <div class="contact-item"><div class="contact-icon"><i class="fab fa-github"></i></div><div><span class="contact-label">GitHub</span><a href="https://github.com/ankush251002" target="_blank">github.com/ankush251002</a></div></div>
+                            <div class="contact-item"><div class="contact-icon"><i class="fab fa-linkedin-in"></i></div><div><span class="contact-label">LinkedIn</span><a href="https://linkedin.com/in/ankush-saini-451206355/" target="_blank">Ankush Saini</a></div></div>
                         </div>
                     </div>
                     <div class="contact-form-container reveal">
                         <form class="contact-form" id="contactForm">
-                            <div class="form-group">
-                                <input type="text" id="formName" placeholder=" " class="form-input" required>
-                                <label for="formName" class="form-label">Your Name</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="formEmail" placeholder=" " class="form-input" required>
-                                <label for="formEmail" class="form-label">Your Email</label>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="formMessage" placeholder=" " rows="5" class="form-input" required></textarea>
-                                <label for="formMessage" class="form-label">Your Message</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">
-                                <span>Send Message</span>
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
+                            <div class="form-group"><input type="text" id="formName" placeholder=" " class="form-input" required><label for="formName" class="form-label">Your Name</label></div>
+                            <div class="form-group"><input type="email" id="formEmail" placeholder=" " class="form-input" required><label for="formEmail" class="form-label">Your Email</label></div>
+                            <div class="form-group"><textarea id="formMessage" placeholder=" " rows="5" class="form-input" required></textarea><label for="formMessage" class="form-label">Your Message</label></div>
+                            <button type="submit" class="btn btn-primary btn-block"><span>Send Message</span><i class="fas fa-paper-plane"></i></button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="footer-container">
-                <div class="footer-brand">
-                    <span class="logo-text">Ankush</span><span class="logo-dot">.</span>
-                    <p>&copy; 2024 — Built with dedication and passion for data.</p>
-                </div>
+                <div class="footer-brand"><span class="logo-text">Ankush</span><span class="logo-dot">.</span><p>&copy; 2024 — Built with dedication and passion for data.</p></div>
                 <div class="footer-links">
-                    <a href="https://github.com/ankush251002" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/ankush-saini-451206355/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:sainiankush630@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/ankush251002" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/ankush-saini-451206355/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:sainiankush630@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </footer>
-
-    </div><!-- /mainContent -->
+    </div>
 
     <script src="script.js"></script>
 </body>
