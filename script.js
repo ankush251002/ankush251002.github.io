@@ -60,6 +60,7 @@
     function strikeLightning(index) {
         const bolt = lightnings[index];
         if (!bolt) return;
+        // Remove any existing strike class
         bolt.classList.remove('strike');
         void bolt.offsetWidth; // reflow
         bolt.classList.add('strike');
