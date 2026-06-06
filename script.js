@@ -236,7 +236,7 @@
     const el = document.getElementById('typewriter');
     if (!el) return;
 
-    const phrases = ['Data Analyst', 'Python Developer', 'BI Dashboard Builder', 'SQL Enthusiast', 'Insight Storyteller'];
+    const phrases = ['Data Analyst', 'Python', 'BI Dashboard Builder', 'SQL Enthusiast', 'Insight Storyteller'];
     let phraseIndex = 0, charIndex = 0;
     let isDeleting = false, delay = 100;
 
